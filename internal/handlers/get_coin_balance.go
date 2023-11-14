@@ -123,3 +123,37 @@ func DelCoinBalance(w http.ResponseWriter, r *http.Request){
 		return
 	}
 }
+
+func ChangeCoinBalance(w http.ResponseWriter, r *http.Request){
+	var Data map[string]interface{}
+	err := json.NewDecoder(r.Body).Decode(&Data)
+	if err != nil {
+		log.Error("Error decoding request body:", err)
+		api.InternalErrorHandler(w)
+		return
+	}
+
+	// Close the request body after reading
+	defer r.Body.Close()
+
+	// should delete operation be happen on database
+
+	// Create the response
+	var Response = struct {
+		Message string `json:"message"`
+	}{
+		Message: "Data Altered successfully",
+	}
+	fmt.Println("Posted Altered Receieved", Data)
+
+	// Set the response header
+	w.Header().Set("Content-Type", "application/json")
+
+	// Encode and send the response
+	err = json.NewEncoder(w).Encode(Response)
+	if err != nil {
+		log.Error("Error encoding response:", err)
+		api.InternalErrorHandler(w)
+		return
+	}
+}

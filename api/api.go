@@ -46,4 +46,8 @@ var (
 	InternalErrorHandler = func(w http.ResponseWriter){
 		writeError(w,"An Unexpected Error Occured.", http.StatusInternalServerError )
 	}
+
+	LoginErrorHandler = func(w http.ResponseWriter,err error){
+		writeError(w,err.Error(),http.StatusNotFound)
+	}
 )
