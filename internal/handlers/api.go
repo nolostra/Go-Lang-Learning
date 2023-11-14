@@ -19,5 +19,6 @@ func Handler(r *chi.Mux){
 
 		router.Get("/coins",GetCoinBalance)
 		router.Post("/coins",PostCoinBalance)
+		router.Delete("/coins",DelCoinBalance)
 	})
 }
