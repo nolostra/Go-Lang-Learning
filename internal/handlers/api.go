@@ -19,6 +19,10 @@ func Handler(r *chi.Mux){
 		router.Get("/",Login)
 	})
 
+	r.Route("/dashboard",func(router chi.Router){
+		router.Get("/",Dashboard)
+	})
+
 
 	r.Route("/account",func(router chi.Router){
 		// Middleware For /account route

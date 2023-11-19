@@ -50,4 +50,9 @@ var (
 	LoginErrorHandler = func(w http.ResponseWriter,err error){
 		writeError(w,err.Error(),http.StatusNotFound)
 	}
+
+	TokenErrorHandler = func(w http.ResponseWriter,err error){
+		writeError(w,err.Error(),http.StatusBadRequest)
+	}
+
 )

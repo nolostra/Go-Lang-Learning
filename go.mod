@@ -3,6 +3,7 @@ module github.com/nolostra/goproject
 go 1.21.3
 
 require (
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/go-chi/chi v1.5.5
 	github.com/gorilla/schema v1.2.1
 	github.com/sirupsen/logrus v1.9.3
